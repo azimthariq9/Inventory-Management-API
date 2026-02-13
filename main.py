@@ -28,9 +28,12 @@ def create_item(item: Item):
 def update_item(item_id: int, updated_item: Item):
     for index, item in enumerate(items):
         if item.id == item_id:
+            if updated_item.stock < 0:
+                return {"error": "Stock cannot be negative"}
             items[index] = updated_item
             return updated_item
     return {"error": "Item not found"}
+
 
 @app.delete("/items/{item_id}")
 def delete_item(item_id: int):
