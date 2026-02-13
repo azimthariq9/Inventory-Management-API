@@ -23,3 +23,12 @@ def list_items():
 def create_item(item: Item):
     items.append(item)
     return item
+
+@app.put("/items/{item_id}")
+def update_item(item_id: int, updated_item: Item):
+    for index, item in enumerate(items):
+        if item.id == item_id:
+            items[index] = updated_item
+            return updated_item
+    return {"error": "Item not found"}
+
