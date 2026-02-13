@@ -43,4 +43,9 @@ def delete_item(item_id: int):
             return deleted
     return {"error": "Item not found"}
 
+if updated_item.stock < 0:
+    return {"error": "Stock cannot be negative"}
+
+
+
 
