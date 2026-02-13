@@ -37,7 +37,7 @@ def delete_item(item_id: int):
     for index, item in enumerate(items):
         if item.id == item_id:
             deleted = items.pop(index)
-            return deleted_item   # <- BUG DISINI
+            return deleted
     return {"error": "Item not found"}
 
 
