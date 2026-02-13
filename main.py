@@ -34,7 +34,6 @@ def update_item(item_id: int, updated_item: Item):
             return updated_item
     return {"error": "Item not found"}
 
-
 @app.delete("/items/{item_id}")
 def delete_item(item_id: int):
     for index, item in enumerate(items):
@@ -42,10 +41,3 @@ def delete_item(item_id: int):
             deleted = items.pop(index)
             return deleted
     return {"error": "Item not found"}
-
-if updated_item.stock < 0:
-    return {"error": "Stock cannot be negative"}
-
-
-
-
