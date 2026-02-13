@@ -1,7 +1,10 @@
 from fastapi import FastAPI
+from typing import List
 
 app = FastAPI()
 
-@app.get("/")
-def root():
-    return {"message": "Inventory API Running"}
+items = []
+
+@app.get("/items")
+def list_items():
+    return items
